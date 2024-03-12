@@ -25,7 +25,7 @@ const ProductListing = () => {
         <>
             <h1 className="text-4xl text-center font-semibold mt-2">Product Listing Component</h1>
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-5 mt-2 p-5">
+            <div className="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-9 mt-2 p-10">
                 <ProductComponent />
             </div>
         </>

@@ -4,9 +4,10 @@ import { useSelector } from "react-redux";
 
 const ProductComponent = () => {
     const products = useSelector((state) => state.allProducts.products);
+    console.warn(products);
 
-    const renderList = products.map((product) => {
-        const { id, title, image, price, category } = product;
+    const renderList = products.map((data) => {
+        const { id, title, image, price, category } = data;
 
         return (
             <div key={id} className="max-w-md bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">

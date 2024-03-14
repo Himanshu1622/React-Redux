@@ -1,26 +1,16 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedProduct, removeSelectedProduct } from "../Store/Actions/productActions";
+import { fetchProduct, removeSelectedProduct } from "../Store/Actions/productActions";
 
 const ProductDetail = () => {
     const { id } = useParams();
     const product = useSelector((state) => state.product);
     const dispatch = useDispatch();
 
-    const getProductDetail = async () => {
-        try {
-            const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
-            dispatch(selectedProduct(response.data));
-        } catch (error) {
-            console.error("Error fetching product details:", error);
-        }
-    };
-
     useEffect(() => {
         if (id && id !== '') {
-            getProductDetail();
+           dispatch(fetchProduct(id));
         }
         return () => {
             dispatch(removeSelectedProduct());
